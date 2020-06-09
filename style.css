@@ -1,0 +1,54 @@
+.control-center__title {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.card {
+  border: 2px solid green;
+  background: white;
+  display: flex;
+  flex-flow: column;
+  width: 350px;
+  height: 450px;
+}
+.daily-image {
+  margin: 0 auto;
+}
+
+.test {
+  width: 200px;
+  height: 200px;
+}
+
+.image {
+  border: 2px red solid;
+  margin: 0 auto;
+  width: 25px;
+  height: 25px;
+}
+img {
+  width: 100px;
+  height: 100px;
+}
+.testi {
+  width: 10%;
+}
+
+.container .card .title {
+  flex: 1 1 auto;
+}
+
+.title {
+  text-align: center;
+  vertical-align: middle;
+
+  line-height: 450px;
+}
+
+h4 {
+  margin: 0;
+}
