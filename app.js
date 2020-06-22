@@ -1,20 +1,21 @@
-const getBtn = document.getElementById("get-btn");
+/* const getBtn = document.getElementById("get-btn");
 const postBtn = document.getElementById("post-btn");
 const secondbtn = document.getElementById("get-secondbtn");
 const title = document.querySelector(".title");
-const image = document.querySelector(".image");
+const image = document.querySelector(".image"); */
 const imageOfTheDay = document.querySelector(".daily-image");
+const pictureName = document.querySelector(".picture-name");
 
 const getImageOfTheDay = () => {
   axios
     .get("https://api.nasa.gov/planetary/apod?", {
       params: {
         api_key: "DEMO_KEY",
-        date: "2019-12-05",
       },
     })
     .then((response) => {
       console.log(response);
+      // pictureName.insertAdjacentHTML("beforeend", `${response.data.title}`);
       imageOfTheDay.insertAdjacentHTML(
         "beforeend",
         `<img src=${response.data.hdurl}>`
@@ -22,19 +23,13 @@ const getImageOfTheDay = () => {
     });
 };
 
-// getImageOfTheDay();
+getImageOfTheDay();
 
-const getSecondData = () => {
-  axios
-    .get("https://images-api.nasa.gov/search?q", {
-      params: {
-        year_end: 2001,
-      },
-    })
-    .then((response) => {
-      console.log(response.items);
-      console.log(response);
-    });
+/* const getSecondData = () => {
+  axios.get("https://images-api.nasa.gov/search?q", {}).then((response) => {
+    console.log(response.items);
+    console.log(response);
+  });
 };
 
 const getData = () => {
@@ -46,7 +41,7 @@ const getData = () => {
       const img = `<img class="testi" src=${response.data.hdurl}`;
       /*  console.log(response);
         console.log(img);
-        console.log(response.data.hdurl); */
+        console.log(response.data.hdurl); 
       title.insertAdjacentHTML("beforeend", response.data.title);
       image.insertAdjacentHTML(
         "beforeend",
@@ -54,28 +49,14 @@ const getData = () => {
       );
     });
 };
-const sendData = () => {
-  axios
-    .post("https://reqres.in/api/register", {
-      email: "eve.holt@reqres.in",
-      password: "pistol",
-    })
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((err) => {
-      console.log(err, err.response);
-    });
-};
 
 const test = () => {
   axios
     .all([getSecondData(), getData()])
     .then(axios.spread(function (acct, perms) {}));
-};
+}; */
 
-getBtn.addEventListener("click", getData);
-postBtn.addEventListener("click", sendData);
+/* getBtn.addEventListener("click", getData);
 secondbtn.addEventListener("click", getSecondData);
-secondbtn.addEventListener("click", test);
-secondbtn.addEventListener("click", getImageOfTheDay);
+secondbtn.addEventListener("click", test); */
+// secondbtn.addEventListener("click", getImageOfTheDay);

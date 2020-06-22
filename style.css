@@ -1,40 +1,28 @@
-.control-center__title {
-  text-align: center;
-}
-
 .container {
   display: flex;
   justify-content: space-evenly;
 }
 
-.card {
-  border: 2px solid green;
-  background: white;
-  display: flex;
-  flex-flow: column;
-  width: 350px;
-  height: 450px;
+.control-center__title {
+  text-align: center;
+  font-family: cursive;
+  font-size: 50px;
+  margin: 0;
+}
+
+img {
+  width: 100%;
+  height: 400px;
+}
+
+.picture-name {
+  text-align: center;
 }
 .daily-image {
-  margin: 0 auto;
+  text-align: center;
 }
 
-.test {
-  width: 200px;
-  height: 200px;
-}
-
-.image {
-  border: 2px red solid;
-  margin: 0 auto;
-  width: 25px;
-  height: 25px;
-}
-img {
-  width: 100px;
-  height: 100px;
-}
-.testi {
+/* .testi {
   width: 10%;
 }
 
@@ -52,3 +40,4 @@ img {
 h4 {
   margin: 0;
 }
+ */
