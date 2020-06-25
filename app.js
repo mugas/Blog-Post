@@ -5,8 +5,10 @@ const title = document.querySelector(".title");
 const image = document.querySelector(".image"); */
 const imageOfTheDay = document.querySelector(".daily-image");
 const pictureName = document.querySelector(".picture-name");
+const btn = document.querySelector(".btn");
+const marsWeather = document.querySelector(".mars-weather");
 
-const getImageOfTheDay = () => {
+/* const getImageOfTheDay = () => {
   axios
     .get("https://api.nasa.gov/planetary/apod?", {
       params: {
@@ -20,10 +22,31 @@ const getImageOfTheDay = () => {
         "beforeend",
         `<img src=${response.data.hdurl}>`
       );
+      pictureName.insertAdjacentHTML("beforeend", `${response.data.title}`);
     });
 };
 
-getImageOfTheDay();
+getImageOfTheDay(); */
+
+const getMarsWeather = () => {
+  axios
+    .get("https://api.nasa.gov/insight_weather/", {
+      params: {
+        api_key: "DEMO_KEY",
+        version: "1.0",
+        feedtype: "json",
+      },
+    })
+    .then((response) => {
+      response.data.sol_keys.forEach((sol) => console.log(sol));
+      console.log(response.data);
+      console.log(response.data[554].AT.av);
+      console.log(response.data.AT.av);
+      console.log(response.data.sol_keys[0]);
+    });
+};
+
+getMarsWeather();
 
 /* const getSecondData = () => {
   axios.get("https://images-api.nasa.gov/search?q", {}).then((response) => {
