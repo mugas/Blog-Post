@@ -8,7 +8,9 @@ const pictureName = document.querySelector(".picture-name");
 const btn = document.querySelector(".btn");
 const marsWeather = document.querySelector(".mars-weather");
 
-/* const getImageOfTheDay = () => {
+// Api to get the Image of the day
+
+const getImageOfTheDay = () => {
   axios
     .get("https://api.nasa.gov/planetary/apod?", {
       params: {
@@ -16,8 +18,6 @@ const marsWeather = document.querySelector(".mars-weather");
       },
     })
     .then((response) => {
-      console.log(response);
-      // pictureName.insertAdjacentHTML("beforeend", `${response.data.title}`);
       imageOfTheDay.insertAdjacentHTML(
         "beforeend",
         `<img src=${response.data.hdurl}>`
@@ -26,7 +26,7 @@ const marsWeather = document.querySelector(".mars-weather");
     });
 };
 
-getImageOfTheDay(); */
+getImageOfTheDay();
 
 const getMarsWeather = () => {
   axios
@@ -38,17 +38,15 @@ const getMarsWeather = () => {
       },
     })
     .then((response) => {
-      response.data.sol_keys.forEach((sol) => console.log(sol));
-      console.log(response.data);
-      //console.log(response.data[554].AT.av);
-      console.log(response.data.AT.av);
-      console.log(response.data.sol_keys[0]);
+      const data = Object.values(response.data);
+      const data3 = data[0].AT.av;
+      console.log(data3);
     });
 };
 
 getMarsWeather();
 
- const getSecondData = () => {
+const getSecondData = () => {
   axios.get("https://images-api.nasa.gov/search?q", {}).then((response) => {
     console.log(response.items);
     console.log(response);
@@ -57,14 +55,12 @@ getMarsWeather();
 
 const getData = () => {
   axios
-    .get(
-      "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY"
-    )
+    .get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
     .then((response) => {
       const img = `<img class="testi" src=${response.data.hdurl}`;
-        console.log(response);
-        console.log(img);
-        console.log(response.data.hdurl); 
+      console.log(response);
+      console.log(img);
+      console.log(response.data.hdurl);
       title.insertAdjacentHTML("beforeend", response.data.title);
       image.insertAdjacentHTML(
         "beforeend",
@@ -77,9 +73,9 @@ const test = () => {
   axios
     .all([getSecondData(), getData()])
     .then(axios.spread(function (acct, perms) {}));
-}; 
+};
 
- getBtn.addEventListener("click", getData);
+/* getBtn.addEventListener("click", getData);
 secondbtn.addEventListener("click", getSecondData);
 secondbtn.addEventListener("click", test); */
 // secondbtn.addEventListener("click", getImageOfTheDay);

@@ -3,7 +3,8 @@
   justify-content: space-evenly;
 }
 
-.control-center__title {
+.control-center__title,
+.mars__title {
   text-align: center;
   font-family: cursive;
   font-size: 50px;
@@ -20,6 +21,27 @@ img {
 }
 .daily-image {
   text-align: center;
+}
+
+.mars__container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.mars__today-data,
+.mars__tomorrow-data,
+.mars__temperature-data {
+  border: 1px red solid;
+  width: 100px;
+  height: 100px;
+}
+
+.mars__today,
+.mars__tomorrow,
+.mars__temperature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* .testi {
