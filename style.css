@@ -30,7 +30,7 @@ img {
 
 .mars__today-data,
 .mars__tomorrow-data,
-.mars__temperature-data {
+.mars__info-data {
   border: 1px red solid;
   width: 100px;
   height: 100px;
@@ -38,7 +38,7 @@ img {
 
 .mars__today,
 .mars__tomorrow,
-.mars__temperature {
+.mars__info {
   display: flex;
   flex-direction: column;
   align-items: center;
