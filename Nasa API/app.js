@@ -2,14 +2,8 @@ import regeneratorRuntime from "regenerator-runtime";
 
 import {} from "dotenv/config";
 
-/* import dotenv from "dotenv";
-
-dotenv.config(); */
-
 const imageOfTheDay = document.querySelector(".daily-image");
 const pictureName = document.querySelector(".picture-name");
-const marsWeather = document.querySelector(".mars-weather");
-const marsBtn = document.querySelectorAll(".mars__btn1");
 const marsWeatherToday = document.querySelector(".mars__today-data");
 const marsWeatherTomorrow = document.querySelector(".mars__tomorrow-data");
 const btnMarsToday = document.getElementById("btn__today");
@@ -24,16 +18,15 @@ const apiPicOfTheDay = axios.get("https://api.nasa.gov/planetary/apod?", {
 });
 const apiMarsWeather = axios.get("https://api.nasa.gov/insight_weather/", {
   params: {
-    api_key: process.env.API_KEY,
+    api_key: "DEMO_KEY",
     version: "1.0",
     feedtype: "json",
   },
 });
 
 const message = process.env.API_KEY;
-console.log(process.env);
 console.log(message);
-// process.env.API_KEY;
+
 // Api to get the Image of the day
 
 const getImageOfTheDay = () => {
@@ -50,12 +43,14 @@ getImageOfTheDay();
 
 // Api to get Mars Weather
 
+// All Mars weather in one function
 async function getMarsWeather() {
   axios
     .all([getTodayWeather(), getTomorrowWeather(), getTodayInfo()])
     .then(axios.spread(function (acc, perms) {}));
 }
 
+// Today temperature
 const getTodayWeather = () => {
   apiMarsWeather.then((response) => {
     const weather = Object.values(response.data);
@@ -65,6 +60,7 @@ const getTodayWeather = () => {
   });
 };
 
+// Tomorrow temperature
 const getTomorrowWeather = () => {
   apiMarsWeather.then((response) => {
     const weather = Object.values(response.data);
@@ -73,7 +69,8 @@ const getTomorrowWeather = () => {
   });
 };
 
-const getTodayInfo = () => {
+// Today temperature
+const getNextDayWeather = () => {
   apiMarsWeather.then((response) => {
     const weather = Object.values(response.data);
     const weatherInTwoDays = weather[2].AT.av;
@@ -88,7 +85,7 @@ btnMarsToday.addEventListener("click", getTodayWeather, {
 btnMarsTomorrow.addEventListener("click", getTomorrowWeather, {
   once: true,
 });
-btnNextDay.addEventListener("click", getTodayInfo, {
+btnNextDay.addEventListener("click", getNextDayWeather, {
   once: true,
 });
 marsTitle.addEventListener("mouseover", getMarsWeather, {

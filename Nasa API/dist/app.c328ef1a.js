@@ -1534,7 +1534,6 @@ var process = require("process");
   require('./lib/main').config(Object.assign({}, require('./lib/env-options'), require('./lib/cli-options')(process.argv)));
 })();
 },{"./lib/main":"node_modules/dotenv/lib/main.js","./lib/env-options":"node_modules/dotenv/lib/env-options.js","./lib/cli-options":"node_modules/dotenv/lib/cli-options.js","process":"node_modules/process/browser.js"}],"app.js":[function(require,module,exports) {
-var process = require("process");
 "use strict";
 
 var _regeneratorRuntime = _interopRequireDefault(require("regenerator-runtime"));
@@ -1547,13 +1546,8 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-/* import dotenv from "dotenv";
-
-dotenv.config(); */
 var imageOfTheDay = document.querySelector(".daily-image");
 var pictureName = document.querySelector(".picture-name");
-var marsWeather = document.querySelector(".mars-weather");
-var marsBtn = document.querySelectorAll(".mars__btn1");
 var marsWeatherToday = document.querySelector(".mars__today-data");
 var marsWeatherTomorrow = document.querySelector(".mars__tomorrow-data");
 var btnMarsToday = document.getElementById("btn__today");
@@ -1568,15 +1562,13 @@ var apiPicOfTheDay = axios.get("https://api.nasa.gov/planetary/apod?", {
 });
 var apiMarsWeather = axios.get("https://api.nasa.gov/insight_weather/", {
   params: {
-    api_key: "8I9aoTdKbdYeCCdSY1F8h9WvbCPfASsYBaqLWnFF;",
+    api_key: "DEMO_KEY",
     version: "1.0",
     feedtype: "json"
   }
 });
-var message = "8I9aoTdKbdYeCCdSY1F8h9WvbCPfASsYBaqLWnFF;";
-console.log(process.env);
-console.log(message); // process.env.API_KEY;
-// Api to get the Image of the day
+var message = "Hello";
+console.log(message); // Api to get the Image of the day
 
 var getImageOfTheDay = function getImageOfTheDay() {
   apiPicOfTheDay.then(function (response) {
@@ -1586,10 +1578,12 @@ var getImageOfTheDay = function getImageOfTheDay() {
 };
 
 getImageOfTheDay(); // Api to get Mars Weather
+// All Mars weather in one function
 
 function getMarsWeather() {
   return _getMarsWeather.apply(this, arguments);
-}
+} // Today temperature
+
 
 function _getMarsWeather() {
   _getMarsWeather = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.default.mark(function _callee() {
@@ -1619,7 +1613,8 @@ var getTodayWeather = function getTodayWeather() {
       return false;
     };
   });
-};
+}; // Tomorrow temperature
+
 
 var getTomorrowWeather = function getTomorrowWeather() {
   apiMarsWeather.then(function (response) {
@@ -1627,9 +1622,10 @@ var getTomorrowWeather = function getTomorrowWeather() {
     var weatherTomorrow = weather[1].AT.av;
     marsWeatherTomorrow.insertAdjacentHTML("beforeend", weatherTomorrow);
   });
-};
+}; // Today temperature
 
-var getTodayInfo = function getTodayInfo() {
+
+var getNextDayWeather = function getNextDayWeather() {
   apiMarsWeather.then(function (response) {
     var weather = Object.values(response.data);
     var weatherInTwoDays = weather[2].AT.av;
@@ -1644,13 +1640,13 @@ btnMarsToday.addEventListener("click", getTodayWeather, {
 btnMarsTomorrow.addEventListener("click", getTomorrowWeather, {
   once: true
 });
-btnNextDay.addEventListener("click", getTodayInfo, {
+btnNextDay.addEventListener("click", getNextDayWeather, {
   once: true
 });
 marsTitle.addEventListener("mouseover", getMarsWeather, {
   once: true
 });
-},{"regenerator-runtime":"node_modules/regenerator-runtime/runtime.js","dotenv/config":"node_modules/dotenv/config.js","process":"node_modules/process/browser.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"regenerator-runtime":"node_modules/regenerator-runtime/runtime.js","dotenv/config":"node_modules/dotenv/config.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -1678,7 +1674,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64517" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65236" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
