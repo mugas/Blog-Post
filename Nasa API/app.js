@@ -2,9 +2,9 @@ import regeneratorRuntime from "regenerator-runtime";
 
 import {} from "dotenv/config";
 
-import dotenv from "dotenv";
+/* import dotenv from "dotenv";
 
-dotenv.config();
+dotenv.config(); */
 
 const imageOfTheDay = document.querySelector(".daily-image");
 const pictureName = document.querySelector(".picture-name");
@@ -24,7 +24,7 @@ const apiPicOfTheDay = axios.get("https://api.nasa.gov/planetary/apod?", {
 });
 const apiMarsWeather = axios.get("https://api.nasa.gov/insight_weather/", {
   params: {
-    api_key: "DEMO_KEY",
+    api_key: process.env.API_KEY,
     version: "1.0",
     feedtype: "json",
   },
@@ -33,7 +33,7 @@ const apiMarsWeather = axios.get("https://api.nasa.gov/insight_weather/", {
 const message = process.env.API_KEY;
 console.log(process.env);
 console.log(message);
-// process.env.API_KEY
+// process.env.API_KEY;
 // Api to get the Image of the day
 
 const getImageOfTheDay = () => {
