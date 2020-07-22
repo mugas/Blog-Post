@@ -1,6 +1,6 @@
 // import regeneratorRuntime from "regenerator-runtime";
 
-import {} from "dotenv/config";
+// import {} from "dotenv/config";
 
 const imageOfTheDay = document.querySelector(".daily-image");
 const pictureName = document.querySelector(".picture-name");
