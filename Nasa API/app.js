@@ -1,6 +1,10 @@
 // import regeneratorRuntime from "regenerator-runtime";
 
-// import {} from "dotenv/config";
+/* import {} from "dotenv/config";
+
+const message = process.env.API_KEY;
+console.log(message);
+*/
 
 const imageOfTheDay = document.querySelector(".daily-image");
 const pictureName = document.querySelector(".picture-name");
@@ -23,9 +27,6 @@ const apiMarsWeather = axios.get("https://api.nasa.gov/insight_weather/", {
     feedtype: "json",
   },
 });
-
-const message = process.env.API_KEY;
-console.log(message);
 
 // Api to get the Image of the day
 
