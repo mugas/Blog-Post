@@ -1,10 +1,9 @@
-// import regeneratorRuntime from "regenerator-runtime";
+import regeneratorRuntime from "regenerator-runtime";
 
-/* import {} from "dotenv/config";
+import {} from "dotenv/config";
 
 const message = process.env.API_KEY;
 console.log(message);
-*/
 
 const imageOfTheDay = document.querySelector(".daily-image");
 const pictureName = document.querySelector(".picture-name");
