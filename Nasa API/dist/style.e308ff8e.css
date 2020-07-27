@@ -76,5 +76,24 @@ button {
   align-items: center;
 }
 
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  align-content: flex-start;
+}
+
+.footer__tagline-title {
+  color: #20263f;
+  font-size: 18px;
+  font-family: Lora;
+}
+
+.footer__tagline {
+  font-style: italic;
+  color: #c8882d;
+}
+
 
 /*# sourceMappingURL=/style.e308ff8e.css.map */

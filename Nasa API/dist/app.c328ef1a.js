@@ -1542,10 +1542,7 @@ require("dotenv/config");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
+var message = "Hello";
 var imageOfTheDay = document.querySelector(".daily-image");
 var pictureName = document.querySelector(".picture-name");
 var marsWeatherToday = document.querySelector(".mars__today-data");
@@ -1566,42 +1563,19 @@ var apiMarsWeather = axios.get("https://api.nasa.gov/insight_weather/", {
     version: "1.0",
     feedtype: "json"
   }
-});
-var message = "Hello";
-console.log(message); // Api to get the Image of the day
+}); // Api to get the Image of the day
 
 var getImageOfTheDay = function getImageOfTheDay() {
   apiPicOfTheDay.then(function (response) {
     imageOfTheDay.insertAdjacentHTML("beforeend", "<img src=".concat(response.data.hdurl, ">"));
     pictureName.insertAdjacentHTML("beforeend", "".concat(response.data.title));
+  }).catch(function (err) {
+    console.log(err);
   });
 };
 
 getImageOfTheDay(); // Api to get Mars Weather
-// All Mars weather in one function
-
-function getMarsWeather() {
-  return _getMarsWeather.apply(this, arguments);
-} // Today temperature
-
-
-function _getMarsWeather() {
-  _getMarsWeather = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.default.mark(function _callee() {
-    return _regeneratorRuntime.default.wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            axios.all([getTodayWeather(), getTomorrowWeather(), getTodayInfo()]).then(axios.spread(function (acc, perms) {}));
-
-          case 1:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee);
-  }));
-  return _getMarsWeather.apply(this, arguments);
-}
+// Today temperature
 
 var getTodayWeather = function getTodayWeather() {
   apiMarsWeather.then(function (response) {
@@ -1612,6 +1586,8 @@ var getTodayWeather = function getTodayWeather() {
     btnMarsToday.onclick = function () {
       return false;
     };
+  }).catch(function (err) {
+    console.log(err);
   });
 }; // Tomorrow temperature
 
@@ -1621,6 +1597,8 @@ var getTomorrowWeather = function getTomorrowWeather() {
     var weather = Object.values(response.data);
     var weatherTomorrow = weather[1].AT.av;
     marsWeatherTomorrow.insertAdjacentHTML("beforeend", weatherTomorrow);
+  }).catch(function (err) {
+    console.log(err);
   });
 }; // Today temperature
 
@@ -1631,8 +1609,22 @@ var getNextDayWeather = function getNextDayWeather() {
     var weatherInTwoDays = weather[2].AT.av;
     console.log(weatherInTwoDays);
     marsInfoData.insertAdjacentHTML("beforeend", weatherInTwoDays);
+  }).catch(function (err) {
+    console.log(err);
   });
-};
+}; // All Mars weather in one function
+// Uncomment to see how it works
+
+/* function getMarsWeather() {
+  axios
+    .all([getTodayWeather(), getTomorrowWeather(), getNextDayWeather()])
+    .then(axios.spread(function () {}));
+}
+
+marsTitle.addEventListener("mouseover", getMarsWeather, {
+  once: true,
+}); */
+
 
 btnMarsToday.addEventListener("click", getTodayWeather, {
   once: true
@@ -1641,9 +1633,6 @@ btnMarsTomorrow.addEventListener("click", getTomorrowWeather, {
   once: true
 });
 btnNextDay.addEventListener("click", getNextDayWeather, {
-  once: true
-});
-marsTitle.addEventListener("mouseover", getMarsWeather, {
   once: true
 });
 },{"regenerator-runtime":"node_modules/regenerator-runtime/runtime.js","dotenv/config":"node_modules/dotenv/config.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -1674,7 +1663,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65236" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57879" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
