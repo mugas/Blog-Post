@@ -1,0 +1,22 @@
+body {
+  background: red;
+}
+
+.product-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+img {
+  width: 200px;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+}
+
+.product p {
+  flex-basis: auto;
+}
