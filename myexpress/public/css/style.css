@@ -1,5 +1,90 @@
+/*General Styling*/
 body {
-  background: red;
+  background: #efedc2;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Abril Fatface", serif;
+}
+
+/* Navbar*/
+.navbar__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  filter: brightness(1.75);
+}
+.navbar__about,
+.navbar__works,
+.navbar__box {
+  padding: 7px 23px 3px;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 1rem;
+  line-height: 48px;
+  margin: 0;
+  order: 1;
+}
+
+.navbar__social-media {
+  padding: 0;
+  display: flex;
+
+  justify-content: space-around;
+}
+.main__social-media {
+  /*  border-right: 2px #fff solid;*/
+  /* border-left: 2px #fff solid;*/
+  padding: 12px 2%;
+  display: flex;
+
+  order: 3;
+}
+
+.navbar__about a,
+.navbar__box a,
+.navbar__works a {
+  text-decoration: none;
+  /* color: #b14a39; */
+  color: black;
+  /* color: #E6E7E9;*/
+}
+
+.fab {
+  padding: 0 10px 0 10px;
+}
+
+.navbar__social-media i {
+  font-size: 20px;
+  /* color: #b14a39; */
+  color: black;
+  /* color: #E6E7E9;*/
+}
+
+ul {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
 }
 
 .product-page {
@@ -8,15 +93,82 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.product-page > .product {
+  margin: 10px;
+}
+
+.product > p {
+  text-align: center;
+}
+
 img {
   width: 200px;
+  border-radius: 10px;
+  padding: 2px;
+}
+h2 {
+  color: #a65e59;
+  text-align: center;
 }
 
 .product {
+  background: #8cc0b4;
+  box-shadow: 5px 5px 15px #debf8a;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
+  height: 300px;
+  justify-content: space-between;
 }
 
 .product p {
   flex-basis: auto;
+}
+
+/*Media Queries*/
+@media all and (min-width: 640px) {
+  .main__social-media {
+    border-left: 2px #fff solid;
+  }
+  .navbar__social-media i {
+    font-size: 20px;
+  }
+  .navbar__navbar ul li a {
+    font-size: 1rem;
+  }
+  .navbar__about,
+  .navbar__works,
+  .navbar__box {
+    font-size: 1rem;
+  }
+  .main__menu a {
+    font-size: 1rem;
+  }
+
+  .product-page {
+    display: flex;
+    flex-direction: row;
+    margin-top: 75px;
+  }
+}
+
+@media all and (min-width: 766px) {
+  .navbar__social-media i {
+    font-size: 20px;
+  }
+  .main__menu a {
+    font-size: 1.3125rem;
+  }
+  .main__navbar ul li a {
+    font-size: 1.3125rem;
+  }
+  .navbar__about,
+  .navbar__works,
+  .navbar__box {
+    font-size: 1.3125rem;
+  }
+  .main__menu a {
+    font-size: 1.3125rem;
+  }
 }

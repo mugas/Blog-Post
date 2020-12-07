@@ -1,8 +1,39 @@
 html
   head
     title= "Ola ca estou eu"
+
     style
        include ../public/css/style.css
+       
   body
-    h1= 'Pous'
-    img(src='/images/css.png' alt='Robot face' width='130px')
+  header.navbar
+  link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.7/css/all.css')
+  nav.navbar__links
+    p.navbar__about
+      a(href='#about') About
+    p.navbar__box
+      a(href='#box') Pick Box
+    p.navbar__works
+      a(href='#works') How it works
+    .main__social-media
+      ul.navbar__social-media
+        a(aria-label='facebook' href='https://www.google.fi/')
+          i.fab.fa-facebook-f(aria-label='facebook')
+        a(aria-label='Instagram' href='https://www.google.fi/')
+          i.fab.fa-instagram(aria-label='Instagram')  
+section.product-page
+  article.product
+    h2 Product One
+    p Product description
+    img(src='./images/css.png' alt='css')
+  article.product
+    h2 Product Two
+    p Second Description
+    img(src='./images/css.png' alt='css')
+  article.product
+    h2 Product Three
+    p Third Description
+    img(src='./images/css.png' alt='css')
+
+
+    

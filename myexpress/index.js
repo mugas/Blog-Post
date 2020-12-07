@@ -9,9 +9,9 @@ app.get('/', (req, res) => {
   res.send('Hello Worlds');
 });
 
-app.get('/teste', function(req, res) {
+/* app.get('/teste', function(req, res) {
   res.sendFile('index.html');
-});
+}); */
 
 /* 
 app.get('/home', (req, res) => {
