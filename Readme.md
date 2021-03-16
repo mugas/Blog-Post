@@ -35,11 +35,11 @@ ___
 
 # List of blog posts
 
-* [Control Flow on Javascript](https://www.ricardomoreira.io/blog/2020-05-27-control-flow-on-javascript/)
-* [Loops with examples](https://www.ricardomoreira.io/blog/2020-05-27-loops-with-examples/)
-* [Flip cards with Javascript](https://www.ricardomoreira.io/blog/2020-06-15-flip-cards-with-javascript/)
-* [Create a image gallery](https://www.ricardomoreira.io/blog/2020-05-28-create-a-image-gallery/)
-* [API request with Axios](https://www.ricardomoreira.io/blog/2020-07-22-api-request-with-axios)
+* [Control Flow on Javascript](https://www.gscreations.io/coding/control-flow-on-javascript/)
+* [Loops with examples](https://www.gscreations.io/coding/loops-with-examples/)
+* [Flip cards with Javascript](https://www.gscreations.io/coding/flip-cards-with-javascript/)
+* [Create a image gallery](https://www.gscreations.io/coding/create-a-image-gallery/)
+* [API request with Axios](https://www.gscreations.io/coding/api-request-with-axios)
 
 ___
 
