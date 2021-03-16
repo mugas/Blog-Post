@@ -848,9 +848,9 @@ try {
   Function("r", "regeneratorRuntime = r")(runtime);
 }
 
-},{}],"node_modules/parcel-bundler/src/builtins/_empty.js":[function(require,module,exports) {
+},{}],"../../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/_empty.js":[function(require,module,exports) {
 
-},{}],"node_modules/process/browser.js":[function(require,module,exports) {
+},{}],"../../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/process/browser.js":[function(require,module,exports) {
 
 // shim for using process in browser
 var process = module.exports = {}; // cached from whatever global is present so that test runners that stub it
@@ -1059,7 +1059,7 @@ process.chdir = function (dir) {
 process.umask = function () {
   return 0;
 };
-},{}],"node_modules/path-browserify/index.js":[function(require,module,exports) {
+},{}],"../../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/path-browserify/index.js":[function(require,module,exports) {
 var process = require("process");
 // .dirname, .basename, and .extname methods are extracted from Node.js v8.11.1,
 // backported and transplited with Babel, with backwards-compat fixes
@@ -1364,7 +1364,7 @@ var substr = 'ab'.substr(-1) === 'b'
     }
 ;
 
-},{"process":"node_modules/process/browser.js"}],"node_modules/dotenv/lib/main.js":[function(require,module,exports) {
+},{"process":"../../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/process/browser.js"}],"node_modules/dotenv/lib/main.js":[function(require,module,exports) {
 var process = require("process");
 /*::
 
@@ -1495,7 +1495,7 @@ function config(options
 
 module.exports.config = config;
 module.exports.parse = parse;
-},{"fs":"node_modules/parcel-bundler/src/builtins/_empty.js","path":"node_modules/path-browserify/index.js","process":"node_modules/process/browser.js"}],"node_modules/dotenv/lib/env-options.js":[function(require,module,exports) {
+},{"fs":"../../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/_empty.js","path":"../../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/path-browserify/index.js","process":"../../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/process/browser.js"}],"node_modules/dotenv/lib/env-options.js":[function(require,module,exports) {
 // ../config.js accepts options via environment variables
 var options = {};
 
@@ -1533,7 +1533,7 @@ var process = require("process");
 (function () {
   require('./lib/main').config(Object.assign({}, require('./lib/env-options'), require('./lib/cli-options')(process.argv)));
 })();
-},{"./lib/main":"node_modules/dotenv/lib/main.js","./lib/env-options":"node_modules/dotenv/lib/env-options.js","./lib/cli-options":"node_modules/dotenv/lib/cli-options.js","process":"node_modules/process/browser.js"}],"app.js":[function(require,module,exports) {
+},{"./lib/main":"node_modules/dotenv/lib/main.js","./lib/env-options":"node_modules/dotenv/lib/env-options.js","./lib/cli-options":"node_modules/dotenv/lib/cli-options.js","process":"../../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/process/browser.js"}],"app.js":[function(require,module,exports) {
 "use strict";
 
 var _regeneratorRuntime = _interopRequireDefault(require("regenerator-runtime"));
@@ -1543,32 +1543,32 @@ require("dotenv/config");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var message = "Hello";
-var imageOfTheDay = document.querySelector(".daily-image");
-var pictureName = document.querySelector(".picture-name");
-var marsWeatherToday = document.querySelector(".mars__today-data");
-var marsWeatherTomorrow = document.querySelector(".mars__tomorrow-data");
-var btnMarsToday = document.getElementById("btn__today");
-var marsTitle = document.querySelector(".mars__title");
-var btnMarsTomorrow = document.getElementById("btn__tomorrow");
-var btnNextDay = document.getElementById("btn__nextDay");
-var marsInfoData = document.querySelector(".mars__info-data");
-var apiPicOfTheDay = axios.get("https://api.nasa.gov/planetary/apod?", {
+var imageOfTheDay = document.querySelector('.daily-image');
+var pictureName = document.querySelector('.picture-name');
+var marsWeatherToday = document.querySelector('.mars__today-data');
+var marsWeatherTomorrow = document.querySelector('.mars__tomorrow-data');
+var btnMarsToday = document.getElementById('btn__today');
+var marsTitle = document.querySelector('.mars__title');
+var btnMarsTomorrow = document.getElementById('btn__tomorrow');
+var btnNextDay = document.getElementById('btn__nextDay');
+var marsInfoData = document.querySelector('.mars__info-data');
+var apiPicOfTheDay = axios.get('https://api.nasa.gov/planetary/apod?', {
   params: {
-    api_key: "DEMO_KEY"
+    api_key: 'DEMO_KEY'
   }
 });
-var apiMarsWeather = axios.get("https://api.nasa.gov/insight_weather/", {
+var apiMarsWeather = axios.get('https://api.nasa.gov/insight_weather/', {
   params: {
-    api_key: "DEMO_KEY",
-    version: "1.0",
-    feedtype: "json"
+    api_key: 'DEMO_KEY',
+    version: '1.0',
+    feedtype: 'json'
   }
 }); // Api to get the Image of the day
 
 var getImageOfTheDay = function getImageOfTheDay() {
   apiPicOfTheDay.then(function (response) {
-    imageOfTheDay.insertAdjacentHTML("beforeend", "<img src=".concat(response.data.hdurl, ">"));
-    pictureName.insertAdjacentHTML("beforeend", "".concat(response.data.title));
+    imageOfTheDay.insertAdjacentHTML('beforeend', "<img src=".concat(response.data.hdurl, ">"));
+    pictureName.insertAdjacentHTML('beforeend', "".concat(response.data.title));
   }).catch(function (err) {
     console.log(err);
   });
@@ -1580,8 +1580,9 @@ getImageOfTheDay(); // Api to get Mars Weather
 var getTodayWeather = function getTodayWeather() {
   apiMarsWeather.then(function (response) {
     var weather = Object.values(response.data);
+    console.log(response.data);
     var weatherToday = weather[0].AT.av;
-    marsWeatherToday.insertAdjacentHTML("beforeend", weatherToday);
+    marsWeatherToday.insertAdjacentHTML('beforeend', weatherToday);
 
     btnMarsToday.onclick = function () {
       return false;
@@ -1596,7 +1597,7 @@ var getTomorrowWeather = function getTomorrowWeather() {
   apiMarsWeather.then(function (response) {
     var weather = Object.values(response.data);
     var weatherTomorrow = weather[1].AT.av;
-    marsWeatherTomorrow.insertAdjacentHTML("beforeend", weatherTomorrow);
+    marsWeatherTomorrow.insertAdjacentHTML('beforeend', weatherTomorrow);
   }).catch(function (err) {
     console.log(err);
   });
@@ -1608,7 +1609,7 @@ var getNextDayWeather = function getNextDayWeather() {
     var weather = Object.values(response.data);
     var weatherInTwoDays = weather[2].AT.av;
     console.log(weatherInTwoDays);
-    marsInfoData.insertAdjacentHTML("beforeend", weatherInTwoDays);
+    marsInfoData.insertAdjacentHTML('beforeend', weatherInTwoDays);
   }).catch(function (err) {
     console.log(err);
   });
@@ -1626,16 +1627,16 @@ marsTitle.addEventListener("mouseover", getMarsWeather, {
 }); */
 
 
-btnMarsToday.addEventListener("click", getTodayWeather, {
+btnMarsToday.addEventListener('click', getTodayWeather, {
   once: true
 });
-btnMarsTomorrow.addEventListener("click", getTomorrowWeather, {
+btnMarsTomorrow.addEventListener('click', getTomorrowWeather, {
   once: true
 });
-btnNextDay.addEventListener("click", getNextDayWeather, {
+btnNextDay.addEventListener('click', getNextDayWeather, {
   once: true
 });
-},{"regenerator-runtime":"node_modules/regenerator-runtime/runtime.js","dotenv/config":"node_modules/dotenv/config.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"regenerator-runtime":"node_modules/regenerator-runtime/runtime.js","dotenv/config":"node_modules/dotenv/config.js"}],"../../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -1663,7 +1664,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57879" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53996" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -1839,5 +1840,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","app.js"], null)
+},{}]},{},["../../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","app.js"], null)
 //# sourceMappingURL=/app.c328ef1a.js.map

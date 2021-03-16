@@ -1,28 +1,28 @@
-import regeneratorRuntime from "regenerator-runtime";
+import regeneratorRuntime from 'regenerator-runtime';
 
-import {} from "dotenv/config";
+import {} from 'dotenv/config';
 
 const message = process.env.API_KEY;
 
-const imageOfTheDay = document.querySelector(".daily-image");
-const pictureName = document.querySelector(".picture-name");
-const marsWeatherToday = document.querySelector(".mars__today-data");
-const marsWeatherTomorrow = document.querySelector(".mars__tomorrow-data");
-const btnMarsToday = document.getElementById("btn__today");
-const marsTitle = document.querySelector(".mars__title");
-const btnMarsTomorrow = document.getElementById("btn__tomorrow");
-const btnNextDay = document.getElementById("btn__nextDay");
-const marsInfoData = document.querySelector(".mars__info-data");
-const apiPicOfTheDay = axios.get("https://api.nasa.gov/planetary/apod?", {
+const imageOfTheDay = document.querySelector('.daily-image');
+const pictureName = document.querySelector('.picture-name');
+const marsWeatherToday = document.querySelector('.mars__today-data');
+const marsWeatherTomorrow = document.querySelector('.mars__tomorrow-data');
+const btnMarsToday = document.getElementById('btn__today');
+const marsTitle = document.querySelector('.mars__title');
+const btnMarsTomorrow = document.getElementById('btn__tomorrow');
+const btnNextDay = document.getElementById('btn__nextDay');
+const marsInfoData = document.querySelector('.mars__info-data');
+const apiPicOfTheDay = axios.get('https://api.nasa.gov/planetary/apod?', {
   params: {
-    api_key: "DEMO_KEY",
+    api_key: 'DEMO_KEY',
   },
 });
-const apiMarsWeather = axios.get("https://api.nasa.gov/insight_weather/", {
+const apiMarsWeather = axios.get('https://api.nasa.gov/insight_weather/', {
   params: {
-    api_key: "DEMO_KEY",
-    version: "1.0",
-    feedtype: "json",
+    api_key: 'DEMO_KEY',
+    version: '1.0',
+    feedtype: 'json',
   },
 });
 
@@ -30,14 +30,14 @@ const apiMarsWeather = axios.get("https://api.nasa.gov/insight_weather/", {
 
 const getImageOfTheDay = () => {
   apiPicOfTheDay
-    .then((response) => {
+    .then(response => {
       imageOfTheDay.insertAdjacentHTML(
-        "beforeend",
+        'beforeend',
         `<img src=${response.data.hdurl}>`
       );
-      pictureName.insertAdjacentHTML("beforeend", `${response.data.title}`);
+      pictureName.insertAdjacentHTML('beforeend', `${response.data.title}`);
     })
-    .catch((err) => {
+    .catch(err => {
       console.log(err);
     });
 };
@@ -49,13 +49,14 @@ getImageOfTheDay();
 // Today temperature
 const getTodayWeather = () => {
   apiMarsWeather
-    .then((response) => {
+    .then(response => {
       const weather = Object.values(response.data);
+      console.log(response.data);
       const weatherToday = weather[0].AT.av;
-      marsWeatherToday.insertAdjacentHTML("beforeend", weatherToday);
+      marsWeatherToday.insertAdjacentHTML('beforeend', weatherToday);
       btnMarsToday.onclick = () => false;
     })
-    .catch((err) => {
+    .catch(err => {
       console.log(err);
     });
 };
@@ -63,12 +64,12 @@ const getTodayWeather = () => {
 // Tomorrow temperature
 const getTomorrowWeather = () => {
   apiMarsWeather
-    .then((response) => {
+    .then(response => {
       const weather = Object.values(response.data);
       const weatherTomorrow = weather[1].AT.av;
-      marsWeatherTomorrow.insertAdjacentHTML("beforeend", weatherTomorrow);
+      marsWeatherTomorrow.insertAdjacentHTML('beforeend', weatherTomorrow);
     })
-    .catch((err) => {
+    .catch(err => {
       console.log(err);
     });
 };
@@ -76,13 +77,13 @@ const getTomorrowWeather = () => {
 // Today temperature
 const getNextDayWeather = () => {
   apiMarsWeather
-    .then((response) => {
+    .then(response => {
       const weather = Object.values(response.data);
       const weatherInTwoDays = weather[2].AT.av;
       console.log(weatherInTwoDays);
-      marsInfoData.insertAdjacentHTML("beforeend", weatherInTwoDays);
+      marsInfoData.insertAdjacentHTML('beforeend', weatherInTwoDays);
     })
-    .catch((err) => {
+    .catch(err => {
       console.log(err);
     });
 };
@@ -100,12 +101,12 @@ marsTitle.addEventListener("mouseover", getMarsWeather, {
   once: true,
 }); */
 
-btnMarsToday.addEventListener("click", getTodayWeather, {
+btnMarsToday.addEventListener('click', getTodayWeather, {
   once: true,
 });
-btnMarsTomorrow.addEventListener("click", getTomorrowWeather, {
+btnMarsTomorrow.addEventListener('click', getTomorrowWeather, {
   once: true,
 });
-btnNextDay.addEventListener("click", getNextDayWeather, {
+btnNextDay.addEventListener('click', getNextDayWeather, {
   once: true,
 });

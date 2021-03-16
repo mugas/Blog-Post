@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Dom manipulation tutorial. Learn template-strings, innerHtml and more about dom manipulation">
+    <link rel="stylesheet" href="style.css" />
+    <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"
+  />
+    <title>DOM Manipulation</title>
+    
+</head>
+<body>
+
+  <nav>
+    <ul class="container__one">
+      <li><a href="http://gscreations.io/" rel="noopener"><img src="./assets/logo.svg" alt="good stuff creations logo"></a></li>
+      <li class="navbar__name">Good Stuff Creations Tutorials</li>
+    </ul>
+  </nav>
+    <h1 class="title">Dom Manipulation</h1>
+  
+    <section class="query-selector-all">
+      <section class="queries">
+        <article class="first_element">
+          <h2 class="first__title">Query Selector All - Select all elements</h2>
+          <p>I am a paragraph and I am selected also</p>
+        </article>
+        <article class="second_element">
+          <h2>Query Selector All - Select all elements</h2>
+          <p>I am a paragraph and I am selected also</p>
+        </article>
+      </section>
+        <article class="black__board">
+          <div class="first__code">
+              <h2>How to select all elements?</h2>
+            <button class="code__show__first">Show me the code</button>
+         </div>
+       </article>
+      
+    </section>
+
+    
+
+    <section class="query-selector">
+      <article class="image"> <img class="first__image" src="https://picsum.photos/420" alt="random image from picsum "></article>
+      <article class="black__board">
+        <div class="second__code">
+          <h2>How to select one element?</h2>
+          <button class="code__show__second">Show me the code</button>
+        </div>
+      </article>
+    </section>
+    
+    <section class="recipes-manager">
+
+      <article class="recipes-manager_docs">
+        <div class="recipe-background">
+          <section class="first">
+          <label for="name">Recipe Name</label>
+          <input class="name" type="text" id="name" >
+          <label for="cuisine">Type of cuisine</label>
+          <input class="cuisine" type="text" id="cuisine">
+        </section>
+        <section class="second">
+          <label for="number">How many people</label>
+          <input class="number" type="number" id="number">
+        </section>
+        <section class="buttons">
+          <input class="image" type="file"  accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;">
+          <label class="upload" for="file"  tabindex="0" style="cursor: pointer;">Upload Image</label> 
+          <button class="button-recipe">Show recipe</button>
+        </section>
+      </div>
+        
+        
+      </article>
+     
+      <article class="recipe-menu">
+        <div class="recipe" id="output">
+        </div>
+      </article>
+
+    </section>
+<footer class="footer">
+    <section >
+      <p class="name">Good Stuff Creations </p>
+     
+    </section>
+    <nav>
+      <ul class="social-media">
+        <li class="my-social-media">
+          <a href="https://twitter.com/mugas11" rel="noopener" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </li>
+        <li class="my-social-media">
+          <a href="https://www.instagram.com/gs_codes/" rel="noopener" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </li>
+        <li class="my-social-media">
+          <a href="https://github.com/mugas" rel="noopener" target="_blank" aria-label="Github">
+            <i class="fab fa-github"></i>
+          </a>
+        </li>
+        <li class="my-social-media">
+          <a href="https://www.linkedin.com/in/ricardodmoreira/" rel="noopener" target="_blank" aria-label="Linkedin">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </li>
+        <li class="my-social-media">
+          <a href="http://gscreations.io/" rel="noopener" target="_blank" aria-label="website ">
+            <i class="fas fa-globe"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </footer>
+
+ 
+ 
+  <script src="./app.js"></script>
+
+</body>
+</html>
